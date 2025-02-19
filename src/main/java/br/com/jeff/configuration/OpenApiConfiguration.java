@@ -3,7 +3,9 @@ package br.com.jeff.configuration;
 import org.springdoc.core.GroupedOpenApi;
 import org.springdoc.core.SwaggerUiConfigParameters;
 import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.List;
 @Configuration
 public class OpenApiConfiguration {
 
+    @Bean
+    @Lazy(value = false)
     public List<GroupedOpenApi> apis(
             SwaggerUiConfigParameters config,
             RouteDefinitionLocator locator){
